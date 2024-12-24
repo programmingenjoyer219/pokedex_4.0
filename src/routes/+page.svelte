@@ -1,5 +1,6 @@
 <script lang="ts">
   import PokemonCard from "$features/card/components/PokemonCard.svelte";
+  import Pagination from "$features/pagination/components/Pagination.svelte";
   import Marquee from "$features/search/components/Marquee.svelte";
   import SearchBar from "$features/search/components/SearchBar.svelte";
   import data from "$lib/db/data.json";
@@ -19,6 +20,10 @@
       <PokemonCard {pokemon} />
     {/each}
   </div>
+</section>
+
+<section class="pt-8 pb-4 flex items-center justify-center">
+  <Pagination />
 </section>
 
 <style>
