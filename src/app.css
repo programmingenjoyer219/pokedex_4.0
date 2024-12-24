@@ -2,6 +2,27 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+:root {
+  --Bug: #92bc2c;
+  --Dark: #595761;
+  --Dragon: #0c69c8;
+  --Electric: #d9be2b;
+  --Fairy: #ee90e6;
+  --Fighting: #d3425f;
+  --Fire: #fba54c;
+  --Flying: #a1bbec;
+  --Ghost: #5f6dbc;
+  --Grass: #5fbd58;
+  --Ground: #da7c4d;
+  --Ice: #75d0c1;
+  --Normal: #a0a29f;
+  --Poison: #b763cf;
+  --Psychic: #fa8581;
+  --Rock: #c9bb8a;
+  --Steel: #5695a3;
+  --Water: #539ddf;
+}
+
 img {
   display: block;
   max-width: 100%;

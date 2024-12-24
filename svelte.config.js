@@ -14,6 +14,7 @@ const config = {
     adapter: adapter(),
     alias: {
       $components: "./src/components",
+      $features: "./src/features",
     },
   },
 };

@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+  import Marquee from "$features/search/components/Marquee.svelte";
+  import SearchBar from "$features/search/components/SearchBar.svelte";
+</script>
+
+<section class="pt-8 space-y-4">
+  <SearchBar />
+  <Marquee />
+</section>
