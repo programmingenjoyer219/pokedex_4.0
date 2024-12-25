@@ -6,25 +6,41 @@
   import data from "$lib/db/data.json";
   import type { Pokemon } from "$lib/types";
 
-  const pokemonsToDisplay = data as Pokemon[];
+  const pokemons = data as Pokemon[];
+  let searchQuery = $state("");
+  let pokemonType = $state("");
+  let pokemonsToDisplay = $derived(
+    pokemons.filter((p) =>
+      pokemonType
+        ? p.type.includes(pokemonType) &&
+          p.name.english.toLowerCase().includes(searchQuery.toLowerCase())
+        : p.name.english.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  );
 </script>
 
 <section class="pt-8 space-y-4">
-  <SearchBar />
-  <Marquee />
+  <SearchBar bind:searchQuery />
+  <Marquee bind:pokemonType />
 </section>
 
-<section class="pt-8">
-  <div class="card-grid">
-    {#each pokemonsToDisplay.slice(0, 12) as pokemon (pokemon.id)}
-      <PokemonCard {pokemon} />
-    {/each}
-  </div>
-</section>
+{#if pokemonsToDisplay.length}
+  <section class="pt-8">
+    <div class="card-grid">
+      {#each pokemonsToDisplay.slice(0, 12) as pokemon (pokemon.id)}
+        <PokemonCard {pokemon} />
+      {/each}
+    </div>
+  </section>
 
-<section class="pt-8 pb-4 flex items-center justify-center">
-  <Pagination />
-</section>
+  <section class="pt-8 pb-4 flex items-center justify-center">
+    <Pagination />
+  </section>
+{:else}
+  <section class="pt-8">
+    <h3 class="text-2xl font-bold text-blue-600 text-center">No results...</h3>
+  </section>
+{/if}
 
 <style>
   .card-grid {

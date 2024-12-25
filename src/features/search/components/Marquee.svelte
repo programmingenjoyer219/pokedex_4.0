@@ -1,5 +1,7 @@
-<script>
+<script lang="ts">
   import { pokemonTypes } from "../utils";
+
+  let { pokemonType = $bindable("") }: { pokemonType: string } = $props();
 </script>
 
 <div
@@ -7,6 +9,7 @@
 >
   {#each pokemonTypes as type}
     <button
+      onclick={() => (pokemonType = type)}
       title={type}
       class="flex-none flex items-center gap-2 p-2 rounded-md size-14 hover:opacity-80 hover:scale-110 hover:shadow-md transition-all duration-200"
       style:background-color="var(--{type})"
