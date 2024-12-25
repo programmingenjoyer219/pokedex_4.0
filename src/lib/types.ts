@@ -7,7 +7,7 @@ export interface Pokemon {
     french: string;
   };
   type: string[];
-  base: {
+  base?: {
     HP: number;
     Attack: number;
     Defense: number;
