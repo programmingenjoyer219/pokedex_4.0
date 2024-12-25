@@ -17,6 +17,14 @@
         : p.name.english.toLowerCase().includes(searchQuery.toLowerCase())
     )
   );
+  let numberOfPages = $derived(Math.ceil(pokemonsToDisplay.length / 12));
+  let pageIndex = $state(0);
+  let paginationStartIndex = $derived(pageIndex * 12);
+
+  $effect(() => {
+    pokemonsToDisplay;
+    pageIndex = 0;
+  });
 </script>
 
 <section class="pt-8 space-y-4">
@@ -27,14 +35,14 @@
 {#if pokemonsToDisplay.length}
   <section class="pt-8">
     <div class="card-grid">
-      {#each pokemonsToDisplay.slice(0, 12) as pokemon (pokemon.id)}
+      {#each pokemonsToDisplay.slice(paginationStartIndex, paginationStartIndex + 12) as pokemon (pokemon.id)}
         <PokemonCard {pokemon} />
       {/each}
     </div>
   </section>
 
   <section class="pt-8 pb-4 flex items-center justify-center">
-    <Pagination />
+    <Pagination bind:pageIndex {numberOfPages} />
   </section>
 {:else}
   <section class="pt-8">

@@ -1,3 +1,22 @@
+<script lang="ts">
+  let {
+    pageIndex = $bindable(0),
+    numberOfPages,
+  }: { pageIndex: number; numberOfPages: number } = $props();
+
+  let currentPageNumber = $derived(pageIndex + 1);
+
+  function goToPreviousPage() {
+    if (pageIndex <= 0) return;
+    pageIndex -= 1;
+  }
+
+  function goToNextPage() {
+    if (currentPageNumber >= numberOfPages) return;
+    pageIndex += 1;
+  }
+</script>
+
 {#snippet leftArrowIcon()}
   <svg
     class="size-6"
@@ -25,16 +44,24 @@
 <div
   class="grid grid-cols-3 gap-8 bg-yellow-400 text-sm text-center rounded-md font-semibold text-blue-600 sm:text-xl"
 >
-  <button class="pagination-button">
+  <button
+    disabled={pageIndex <= 0}
+    onclick={goToPreviousPage}
+    class="pagination-button"
+  >
     {@render leftArrowIcon()}
-    <span class="sr-only">previous page</span>
+    <span class="sr-only">go to previous page</span>
   </button>
   <div class="flex items-center justify-center">
-    <span class="p-2 sm:p-4">1</span>
+    <span class="p-2 sm:p-4">{currentPageNumber}</span>
   </div>
-  <button class="pagination-button">
+  <button
+    disabled={currentPageNumber >= numberOfPages}
+    onclick={goToNextPage}
+    class="pagination-button"
+  >
     {@render rightArrowIcon()}
-    <span class="sr-only">next page</span>
+    <span class="sr-only">go to next page</span>
   </button>
 </div>
 
