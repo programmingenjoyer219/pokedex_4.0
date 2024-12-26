@@ -19,6 +19,10 @@
   const stringifiedAbility = ability.map((a) => a[0]).join(", ");
 </script>
 
+<svelte:head>
+  <title>{english}</title>
+</svelte:head>
+
 {#snippet statUnavailableIcon()}
   <svg
     class="size-20"
