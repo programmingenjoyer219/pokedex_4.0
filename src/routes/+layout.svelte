@@ -8,7 +8,7 @@
 
   onMount(() => {
     // @ts-ignore
-    theme.value = localStorage.getItem("theme") ?? "light";
+    theme.value = localStorage.getItem("theme") ?? "dark";
     document.querySelector("html")!.dataset.theme = theme.value;
   });
 </script>
