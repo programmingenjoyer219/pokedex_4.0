@@ -81,6 +81,8 @@
 {/snippet}
 
 {#snippet stat(name: string, value: number)}
+  {@const barWidth = value > 200 ? 100 : Math.floor(value / 2)}
+
   <div class="flex items-center">
     <div class="w-[20%] flex items-center gap-1 sm:w-[10%]">
       {#if name === "HP"}
@@ -99,12 +101,7 @@
       <span>{value}</span>
     </div>
     <div class="p-2 rounded-sm border-2 border-blue-300 flex-1">
-      <div
-        class="bg-blue-500 text-blue-500"
-        style:width="{Math.floor(value / 2)}%"
-      >
-        .
-      </div>
+      <div class="bg-blue-500 text-blue-500" style:width="{barWidth}%">.</div>
     </div>
   </div>
 {/snippet}
