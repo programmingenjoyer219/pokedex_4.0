@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { theme } from "$lib/stores/theme.svelte";
   import { goto } from "$app/navigation";
   import type { Pokemon } from "$lib/types";
   import PokemonProfileSlot from "./PokemonProfileSlot.svelte";
@@ -38,7 +39,11 @@
     height="160px"
     width="160px"
   />
-  <span class="font-bold text-xl">{english}</span>
+  <span
+    class="font-bold text-xl {theme.value === 'light'
+      ? 'text-gray-700'
+      : 'text-gray-100'}">{english}</span
+  >
   <div class="flex items-center justify-center gap-2">
     {#each pokemonTypes as pokemonType, index (index)}
       <PokemonTypeSlot {pokemonType} />

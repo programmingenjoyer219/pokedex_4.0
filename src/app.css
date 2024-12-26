@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 
 :root {
+  /* pokemon types */
   --Bug: #92bc2c;
   --Dark: #595761;
   --Dragon: #0c69c8;
@@ -21,9 +22,43 @@
   --Rock: #c9bb8a;
   --Steel: #5695a3;
   --Water: #539ddf;
+  /* background pattern */
+  --bg-color: hsl(217, 100%, 97%);
+  --bg-image: radial-gradient(
+    hsl(214, 92%, 62%) 0.5px,
+    hsl(217, 100%, 97%) 0.5px
+  );
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(217, 91%, 40%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(217, 91%, 60%);
+  min-height: 100px;
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+
+[data-theme="dark"] {
+  --bg-color: hsl(217, 100%, 3%);
+  --bg-image: radial-gradient(
+    hsl(214, 92%, 38%) 0.5px,
+    hsl(217, 100%, 3%) 0.5px
+  );
+}
+
+html,
+body {
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-size: 10px 10px;
 }

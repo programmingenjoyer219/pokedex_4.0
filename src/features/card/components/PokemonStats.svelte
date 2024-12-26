@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { theme } from "$lib/stores/theme.svelte";
   import type { Pokemon } from "$lib/types";
 
   type Stats = Required<Pick<Pokemon, "base">>;
@@ -108,7 +109,11 @@
   </div>
 {/snippet}
 
-<div class="space-y-2 p-4 rounded-lg shadow-md border">
+<div
+  class="space-y-2 p-4 rounded-lg shadow-md border {theme.value === 'light'
+    ? 'text-gray-700'
+    : 'text-gray-100 border-blue-500/50'}"
+>
   {#each Object.entries(base) as entry (entry[0])}
     {@const statName = entry[0]}
     {@const statValue = entry[1]}

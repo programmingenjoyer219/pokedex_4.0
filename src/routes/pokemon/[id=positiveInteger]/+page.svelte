@@ -1,6 +1,7 @@
 <script lang="ts">
   import PokemonStats from "$features/card/components/PokemonStats.svelte";
   import PokemonTypeSlot from "$features/card/components/PokemonTypeSlot.svelte";
+  import { theme } from "$lib/stores/theme.svelte";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
@@ -114,7 +115,11 @@
     </div>
     <!-- basic info -->
     <div class="flex items-center justify-center">
-      <div class="space-y-2">
+      <div
+        class="space-y-2 {theme.value === 'light'
+          ? 'text-gray-700'
+          : 'text-gray-100'}"
+      >
         <p>
           Species: <span class="text-blue-500 font-medium">{species}</span>
         </p>
@@ -144,7 +149,10 @@
     <PokemonStats stats={{ base }} />
   {:else}
     <div
-      class="w-fit mx-auto p-4 rounded-lg shadow-md border flex flex-col items-center gap-2"
+      class="mx-auto p-4 rounded-lg shadow-md border flex flex-col items-center gap-2 {theme.value ===
+      'light'
+        ? 'text-gray-700'
+        : 'text-gray-100 border-blue-500/50'}"
     >
       <span class="font-bold text-3xl">Stats unavailable</span>
       {@render statUnavailableIcon()}

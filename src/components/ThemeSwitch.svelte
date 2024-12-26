@@ -1,5 +1,19 @@
-<script>
+<script lang="ts">
   import { theme, toggleTheme } from "$lib/stores/theme.svelte";
+
+  let themeToggleButton: HTMLButtonElement;
+
+  function handleClick() {
+    toggleTheme();
+    document.querySelector("html")!.dataset.theme = theme.value;
+  }
+
+  $effect(() => {
+    themeToggleButton.addEventListener("click", handleClick);
+    return () => {
+      themeToggleButton.removeEventListener("click", handleClick);
+    };
+  });
 </script>
 
 {#snippet sunIcon()}
@@ -27,7 +41,7 @@
 {/snippet}
 
 <button
-  onclick={toggleTheme}
+  bind:this={themeToggleButton}
   class="absolute top-1/2 -translate-y-1/2 right-0 p-2 rounded-full bg-blue-600 transition-colors duration-200 hover:bg-blue-700"
 >
   {#if theme.value === "light"}

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { theme } from "$lib/stores/theme.svelte";
+
   let { height, weight }: { height: string; weight: string } = $props();
 </script>
 
@@ -27,12 +29,20 @@
 {/snippet}
 
 <div class="flex items-center justify-center gap-4 mt-2">
-  <div class="flex items-center justify-center gap-1">
+  <div
+    class="flex items-center justify-center gap-1 {theme.value === 'light'
+      ? 'text-gray-700'
+      : 'text-gray-100'}"
+  >
     {@render rulerIcon()}
     <span class="font-semibold text-lg">{height}</span>
   </div>
 
-  <div class="flex items-center justify-center gap-1">
+  <div
+    class="flex items-center justify-center gap-1 {theme.value === 'light'
+      ? 'text-gray-700'
+      : 'text-gray-100'}"
+  >
     {@render weightIcon()}
     <span class="font-semibold text-lg">{weight}</span>
   </div>
