@@ -1,7 +1,16 @@
 <script lang="ts">
-  import ThemeSwitch from "$components/ThemeSwitch.svelte";
   import "../app.css";
+  import ThemeSwitch from "$components/ThemeSwitch.svelte";
+  import { onMount } from "svelte";
+  import { theme } from "$lib/stores/theme.svelte";
+
   let { children } = $props();
+
+  onMount(() => {
+    // @ts-ignore
+    theme.value = localStorage.getItem("theme") ?? "light";
+    document.querySelector("html")!.dataset.theme = theme.value;
+  });
 </script>
 
 <svelte:head>

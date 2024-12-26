@@ -5,6 +5,7 @@
 
   function handleClick() {
     toggleTheme();
+    localStorage.setItem("theme", theme.value);
     document.querySelector("html")!.dataset.theme = theme.value;
   }
 
