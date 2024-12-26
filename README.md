@@ -1,38 +1,38 @@
-# sv
+# POKEDEX 4.0
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This guide will walk you through setting up and running the Pokedex 3.0, built using SvelteKit and Tailwind CSS.
 
-## Creating a project
+**Prerequisites:**
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Node.js and npm (or yarn) installed on your system.
+- Git installed on your system.
 
-```bash
-# create a new project in the current directory
-npx sv create
+**Getting Started:**
 
-# create a new project in my-app
-npx sv create my-app
-```
+1. **Clone the project repository:**
 
-## Developing
+   ```bash
+   git clone https://github.com/programmingenjoyer219/pokedex_4.0.git
+   ```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+2. **Install dependencies:**
 
-```bash
-npm run dev
+   ```bash
+   npm install
+   ```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+3. **Build the application:**
 
-## Building
+   ```bash
+   npm run build
+   ```
 
-To create a production version of your app:
+4. **Preview the application:**
 
-```bash
-npm run build
-```
+   ```bash
+   npm run preview
+   ```
 
-You can preview the production build with `npm run preview`.
+5. **Access the application:**
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+   - Open `http://localhost:4173` in your web browser. Your Pokedex application should be running!
