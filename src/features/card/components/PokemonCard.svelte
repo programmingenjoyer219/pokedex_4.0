@@ -16,6 +16,7 @@
 
 <!-- card design for screen-width <= 640px -->
 <button
+  onclick={() => goto(`/pokemon/${id}`)}
   class="sm:hidden cursor-pointer flex flex-col items-center justify-center p-4 gap-4 rounded-md transition-all ease-out shadow-md transform hover:shadow-lg hover:-translate-y-1"
   style:border="2px solid var(--{pokemonTypes[0]})"
 >
