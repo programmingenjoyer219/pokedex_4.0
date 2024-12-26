@@ -15,8 +15,8 @@
 </script>
 
 <!-- card design for screen-width <= 640px -->
-<button
-  onclick={() => goto(`/pokemon/${id}`)}
+<a
+  href="/pokemon/{id}"
   class="sm:hidden cursor-pointer flex flex-col items-center justify-center p-4 gap-4 rounded-md transition-all ease-out shadow-md transform hover:shadow-lg hover:-translate-y-1"
   style:border="2px solid var(--{pokemonTypes[0]})"
 >
@@ -25,11 +25,11 @@
     class="p-1 text-sm rounded-sm font-semibold text-white"
     style:background-color="var(--{pokemonTypes[0]})">{english}</span
   >
-</button>
+</a>
 
 <!-- card design for screen-width >= 640px -->
-<button
-  onclick={() => goto(`/pokemon/${id}`)}
+<a
+  href="/pokemon/{id}"
   style:border="2px solid var(--{pokemonTypes[0]})"
   class="hidden cursor-pointer flex-col items-center justify-center p-4 gap-4 rounded-md transition-all ease-out shadow-md transform hover:-translate-y-1 hover:shadow-lg sm:flex"
 >
@@ -51,4 +51,4 @@
     {/each}
   </div>
   <PokemonProfileSlot {height} {weight} />
-</button>
+</a>
